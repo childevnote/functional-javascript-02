@@ -1,0 +1,40 @@
+1
+1
+1
+1
+1
+1
+1
+1
+
+
+
+
+<body>
+  <script src="../fx.js"></script>
+  <script>
+    L.entries = function* (obj) {
+      for (const k in obj) {
+        yield [k, obj[k]];
+      }
+    }
+
+    const object = entries => _.reduce(
+      (obj, [k,v]) => (obj[k] = v, obj),{}, entries
+    )
+
+    const mapObject = (f, obj) => _.go(
+      obj,
+      L.entries,
+      _.map(([k, v]) => [k, f(v)]),
+      object
+    );
+
+    console.log(mapObject(a => a + 10, { a: 1, b: 2, c: 3 }));
+
+//[['a', 1],['b', 2],['c',3]] - entries로 만들어서 이터러블로 다루겠다
+// [['a', 11],['b', 12],['c',13]]
+// {a:11} ...
+//{a:11, b:12, c:13}
+  </script>
+</body>

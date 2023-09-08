@@ -1,0 +1,20 @@
+<body>
+  <script src="../fx.js"></script>
+
+  <script>
+    const users = [
+      { name: 'AA', age: 35 },
+      { name: 'BB', age: 26 },
+      { name: 'CC', age: 28 },
+      { name: 'CC', age: 34 },
+      { name: 'EE', age: 23 }
+    ];
+
+    const add = (a, b) => a + b;
+    const ages = L.map(u => u.age);
+    const lessThirty = L.filter(a => a < 30);
+    console.log(
+      _.reduce(add, lessThirty(ages(users)))
+    );
+  </script>
+</body>

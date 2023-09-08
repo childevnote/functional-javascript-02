@@ -1,0 +1,25 @@
+<body>
+  <script src="../fx.js"></script>
+  <script>
+    _.go(
+      _.range(1, 6),
+      _.map(_.range),
+      _.map(_.map(a => '*')),
+      _.map(_.reduce((a, b) => `${a}${b}`)),
+      _.reduce((a, b) => `${a}\n${b}`),
+      console.log
+    );
+
+    // _.go(
+    //   L.range(1,6),
+    //   L.map(s=>_.go(
+    //     L.range(s),
+    //     L.map(a=>'*'),
+    //     _.reduce((a,b)=>`${a}${b}`)
+    //   )),
+    //   _.reduce((a,b)=>`${a}\n${b}`),
+    //   console.log
+    // )
+
+  </script>
+</body>

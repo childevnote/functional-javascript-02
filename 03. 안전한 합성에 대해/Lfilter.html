@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+<body>
+  <script src="../fx.js"></script>
+  <script>
+    const users = [
+      { name: 'AA', age: 35 },
+      { name: 'BB', age: 26 },
+      { name: 'CC', age: 28 },
+      { name: 'CC', age: 34 },
+      { name: 'EE', age: 23 }];
+
+    _.go(users,
+      L.filter(u => {
+        console.log(u);
+        return u.name == 'AA';
+      }),
+      L.map(u => u.age),
+      L.take(1), // 데이터 일부만 추출(첫번째 값)
+      _.each(console.log)); //데이터 반복하며 주어진 함수 실행
+  </script>
+</body>

@@ -1,0 +1,37 @@
+1
+1
+1
+1
+1
+1
+1
+1
+
+
+
+
+<body>
+  <script src="../fx.js"></script>
+  <script>
+    const obj2 = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+
+    const object = entries => _.reduce(
+      (obj, [k, v]) => (obj[k] = v, obj), {}, entries
+    )
+
+    const pick = (ks, obj) => _.go(
+      ks,
+      L.map(k => [k, obj[k]]),
+      L.reject(([k, v]) => v === undefined),
+      object
+    );
+
+    // const pick2 = (ks, obj) => object(_.map(k => [k, obj[k]], ks));
+
+    console.log(pick(['b', 'c', 'z'], obj2));
+
+    // console.log(pick2(['b', 'c', 'z'], obj2));
+    // 최종결과 : {b : 2, c : 3}
+
+  </script>
+</body>

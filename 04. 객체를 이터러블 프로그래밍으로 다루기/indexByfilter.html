@@ -1,0 +1,45 @@
+1
+1
+1
+1
+1
+1
+1
+1
+
+
+
+
+<body>
+  <script src="../fx.js"></script>
+  <script>
+
+    const object = entries => _.reduce(
+      (obj, [k, v]) => (obj[k] = v, obj), {}, entries
+    )
+
+    const users = [
+      { id: 5, name: 'AA', age: 35 },
+      { id: 10, name: 'BB', age: 26 },
+      { id: 19, name: 'CC', age: 28 },
+      { id: 23, name: 'CC', age: 34 },
+      { id: 24, name: 'EE', age: 23 }
+    ];
+
+    _.indexBy = (f, iter) =>
+      _.reduce((obj, a) => (obj[f(a)] = a, obj), {}, iter);
+
+    const users2 = (_.indexBy(u => u.id, users));
+
+    console.log(_.filter(({ age }) => age >= 30, users2));
+
+
+    _.go(
+      users2,
+      _.entries,
+      _.filter(([_, { age }]) => age < 30),
+      object,
+      console.log
+    );
+  </script>
+</body>
